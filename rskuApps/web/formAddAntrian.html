@@ -155,7 +155,7 @@
                 </form>
                 <script>
                     function loadDoc() {
-                        var url = "http://202.94.83.190:8080/165314016_maps/webresources/Pasien/cariPasien?noRm=" + noRm.value;
+                        var url = "http://202.94.83.190:8080/servicesRS165314065/webresources/pasien/cariPasien?noRm=" + noRm.value;
                         var xhttp = new XMLHttpRequest();
                         xhttp.open("GET", url, true);
                         xhttp.send();
@@ -178,7 +178,7 @@
                         };
 
                         var html = JSON.stringify(json, 0, 100);
-                        var url = "http://202.94.83.190:8080/165314016_maps/webresources/Antrian/addAntrian";
+                        var url = "http://202.94.83.190:8080/servicesRS165314065/webresources/Antrian/addAntrian";
                         var xhr = new XMLHttpRequest();
                         xhr.open("POST", url, false);
                         xhr.setRequestHeader("Content-type", "application/json");
