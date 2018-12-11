@@ -75,10 +75,6 @@ public class Pasien  implements java.io.Serializable {
     public void setKelamin(String kelamin) {
         this.kelamin = kelamin;
     }
-
-
-
-
 }
 
 
