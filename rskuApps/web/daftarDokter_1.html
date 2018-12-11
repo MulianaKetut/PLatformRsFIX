@@ -47,7 +47,7 @@
         <div class="preloader">
             <img src="img/loader.gif" alt="Preloader image">
         </div>
-        <nav class="navbar navbar-static-top navbar-inverse">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -62,83 +62,96 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                   
-                    <ul class="nav navbar-nav navbar-left main-nav">
-                        <li><a class="active" href="index.html">Home</a></li>
+                    <ul class="nav navbar-nav navbar-right main-nav">
+                        <li><a class="active" href="admin.html">Home</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dokter</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="daftarDokter.html">Daftar Dokter</a></li>                         
+                            <a href="#" class="dropbtn">Dokter</a>
+                            <ul class="dropdown-content">
+                                <li><a href="daftarDokter_1.html">Daftar Dokter</a></li>                         
+                                <li><a href="formAddDokter.html">Tambah Dokter</a></li>                         
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pasien</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="daftarPasien.html">Daftar Pasien</a></li>
-                                <li><a href="cariPasien.html">Cari Pasien</a></li>                           
+                            <a href="#" class="dropbtn">Pasien</a>
+                            <ul class="dropdown-content">
+                                <li><a href="daftarPasien_1.html">Daftar Pasien</a></li>
+                                <li><a href="cariPasien_1.html">Cari Pasien</a></li>                           
+                                <li><a href="formAddPasien.html">Tambah Pasien</a></li>                           
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Klinik</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="daftarKlinik.html">Daftar Klinik</a></li>                         
+                            <a href="#" class="dropbtn">Klinik</a>
+                            <ul class="dropdown-content">
+                                <li><a href="daftarKlinik_1.html">Daftar Klinik</a></li>                         
+                                <li><a href="formAddKlinik.html">Tambah Klinik</a></li>                         
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Antrian</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="daftarAntrian.html">Daftar Antrian</a></li>                          
+                            <a href="#" class="dropbtn">Antrian</a>
+                            <ul class="dropdown-content">
+                                <li><a href="daftarAntrian_1.html">Daftar Antrian</a></li>                          
+                                <li><a href="formAddAntrian.html">Tambah Antrian</a></li>                          
                             </ul>
                         </li>
-                        <li><a class="active" href="locationRs.html">Locations</a></li>
-                        <li><a class="active" href="login.html">Login</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Locations</a>
+                            <ul class="dropdown-content"> 
+                                <li><a href="locationRs_1.html">Locations</a></li>
+                                <li><a href="formAddLocationsRs.html">Tambah Locations</a></li>                          
+                            </ul>
+                        </li>
+            
+                        <li><a class="active" href="logout.html">Logout</a></li>
                         <li><a class="active" href="#contactUs">Contact Us</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
 
-        <!--page locations-->
-        <section id="locations" class="section gray-bg">
+        <section id="daftarDokter" class="section gray-bg">
             <div class="container">
                 <div class="row title text-center">
-                    <h2 class="margin-top">Locations</h2>    
+                    <h2 class="margin-top">Daftar Dokter</h2>    
                     <h4 class="light muted">Rumah Sakit Merah Putih</h4>
                     <button type="button" onclick="loadDoc()">Click Here</button>
-                    <br><br><br><br>
+                    <br><br><br>
                     <!--<p id="demo"></p>-->                 
                 </div>            
-                <!--<div id="demo"></div>-->
-                <div id="map"></div>
+                <div id="id01"></div>
                 <script>
-                    var map;
                     function loadDoc() {
-                        //var url = "http://202.94.83.190:8080/165314056_servicesr/webresources/Location/getLocation";
-                        var url = "http://202.94.83.190:8080/165314034_Platform_rsku_webservice/webresources/location/getLocation"
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function () {
-                            if (this.readyState == 4 && this.status == 200) {
-//                                document.getElementById("demo").innerHTML = this.responseText;
+                        var xmlhttp = new XMLHttpRequest();
 
-                                var obj = JSON.parse(this.responseText);
-                                map = new google.maps.Map(document.getElementById('map'), {
-                                    center: {lat: obj[0].lat, lng: obj[0].lng},
-                                    zoom: 8
-                                });
-                                var marker = [];
-                                for (var i = 0; i < obj.length; i++) {
-                                    marker[i] = new google.maps.Marker({position: {lat: obj[i].lat, lng: obj[i].lng}, map: map});
-                                }
+                        var url = "http://202.94.83.190:8080/165314056_servicesr/webresources/Dokter";
+
+                        xmlhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                myFunction(this.responseText);
                             }
-                        };
-                        xhttp.open("GET", url, true);
-                        xhttp.send();
+                        }
+                        xmlhttp.open("GET", url, true);
+                        xmlhttp.send();
+
+                        function myFunction(response) {
+                            var arr = JSON.parse(response);
+                            var i;
+                            var out = "<center><table align='center' style='width: 60%;' border='1'> <tr><td>ID Dokter</td><td>Nama Dokter</td><td>Spesialisasi Dokter</td></tr></center>";
+
+                            for (i = 0; i < arr.length; i++) {
+                                out += "<tr><td>" +
+                                        arr[i].id +
+                                        "</td><td>" +
+                                        arr[i].nama +
+                                        "</td><td>" +
+                                        arr[i].spesialis;
+                            }
+                            out += "</table>";
+                            document.getElementById("id01").innerHTML = out;
+                        }
                     }
                 </script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
-                async defer></script>
             </div>
-        </section> 
-        
+        </section>
         <!--page contact us-->
         <footer id="contactUs">
             <div class="container">
